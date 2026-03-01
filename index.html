@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneath the Surface</title>
+    <meta name="description" content="A 2D top-down adventure where you descend into a mirror dimension to stop a catastrophe before it reaches the surface. Find the keys. Enter The Below. Retrieve the Sword of Seal. Save the town that will never know.">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="loading">
+        <div class="spinner"></div>
+        <span>Entering the surface...</span>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="scanlines"></div>
+
+    <!-- Engine -->
+    <script src="js/engine/input.js"></script>
+    <script src="js/engine/camera.js"></script>
+    <script src="js/engine/collision.js"></script>
+    <script src="js/engine/particles.js"></script>
+    <script src="js/engine/audio.js"></script>
+    <script src="js/engine/renderer.js"></script>
+
+    <!-- World -->
+    <script src="js/world/tilemap.js"></script>
+    <script src="js/entities/npc.js"></script>
+    <script src="js/entities/player.js"></script>
+    <script src="js/entities/guardian.js"></script>
+    <script src="js/world/surface.js"></script>
+    <script src="js/world/portal.js"></script>
+    <script src="js/world/maze.js"></script>
+    <script src="js/world/pond.js"></script>
+    <script src="js/world/chamber.js"></script>
+    <script src="js/world/return.js"></script>
+
+    <!-- UI -->
+    <script src="js/ui/hud.js"></script>
+    <script src="js/ui/dialog.js"></script>
+    <script src="js/ui/menus.js"></script>
+    <script src="js/ui/transitions.js"></script>
+
+    <!-- Main Game -->
+    <script src="js/engine/game.js"></script>
+
+    <script>
+        // Hide loading screen once game starts
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
