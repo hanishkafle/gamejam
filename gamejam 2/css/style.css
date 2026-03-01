@@ -1,0 +1,86 @@
+/* Beneath the Surface — Game Styles */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #050409;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at center, #0F0E1A 0%, #050409 80%);
+}
+
+#gameCanvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow:
+        0 0 30px rgba(139, 92, 246, 0.1),
+        0 0 80px rgba(139, 92, 246, 0.05),
+        inset 0 0 30px rgba(0, 0, 0, 0.3);
+    cursor: none;
+}
+
+/* Loading screen */
+#loading {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #050409;
+    color: #8B5CF6;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    z-index: 100;
+    transition: opacity 0.5s ease;
+}
+
+#loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#loading .spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #1E1B4B;
+    border-top-color: #8B5CF6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Scanline effect overlay */
+#scanlines {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.03) 0px,
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+}
